@@ -1,0 +1,28 @@
+{
+  "name": "webpack-script-run-loader",
+  "version": "0.0.1",
+  "description": "wepack script exec loader in build time",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack --config ./test/webpack.config.js"
+  },
+  "keywords": [
+    "webpack",
+    "script",
+    "loader",
+    "exec",
+    "run"
+  ],
+  "author": "zhangsanshi",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/register": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.0-beta.2",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
+  }
+}
