@@ -1,6 +1,6 @@
 {
   "name": "webpack-script-run-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "wepack script exec loader in build time",
   "main": "index.js",
   "scripts": {
