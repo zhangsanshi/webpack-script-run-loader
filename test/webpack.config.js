@@ -13,6 +13,11 @@ module.exports = {
                 use: [
                     {
                         loader: path.resolve(__dirname, '../index.js'),
+                        options: {
+                            babel: `require('babel-register')({
+                                presets: ['babel-preset-env']
+                             });`
+                        }
                     },
                     {
                         loader: 'babel-loader',

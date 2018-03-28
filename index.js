@@ -1,10 +1,10 @@
 const exec = require('./exec');
-const babel = require("@babel/core");
+const loaderUtils = require("loader-utils");
 module.exports = function (source) {
-
-    return `module.exports = ${JSON.stringify(exec(`
-    require('@babel/register')({
+    this.cacheable && this.cacheable();
+    const options = loaderUtils.getOptions(this) || {};
+    const babel = options.babel || `require('@babel/register')({
         presets: ['@babel/preset-env']
-     });
-     ${source}`, this.resourcePath, this.context))}`;
+     });`;
+    return `module.exports = ${JSON.stringify(exec(`${babel};${source}`, this.resourcePath, this.context))}`;
 };

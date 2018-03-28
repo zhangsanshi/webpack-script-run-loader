@@ -14,6 +14,23 @@ module: {
             use: [
                 {
                     loader: path.resolve(__dirname, '../index.js'),
+                    options: {
+                        babel: `require('babel-register')({
+                            presets: ['babel-preset-env']
+                        });` 
+                        // can use custom babel config or default config.
+                        // default config:
+                        // require('@babel/register')({
+                        //     presets: ['@babel/preset-env']
+                        // });
+                    },  
+                   
+                },
+                {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
             ]
         }
@@ -48,4 +65,5 @@ export const run2 = Object.assign({
 
 ```
 ## note
-this loader has own babel config for run script in node, maybe something not work and serialized by `JSON.stringify`.
+1. this loader serialized data by `JSON.stringify`.
+2. this loader will not watch `run script file` dependent files, so need to manual trigger `run script file` file change if dependent files changed.
